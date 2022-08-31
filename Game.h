@@ -15,6 +15,10 @@
 	Game engine / Wrapper Class
 */ 
 
+
+
+
+
 class Game {
 
 private: 
@@ -88,3 +92,24 @@ public:
 
 };
 
+class EnemyTest {
+
+private:
+
+	std::string colors[6] = {"MAGENTA", "BLUE", "CYAN", "ORANGE", "GREEN", "RED" };
+
+	int pointsAssociatedColors[6] = { 10, 5, 3, 2, 1, -100 };
+	int HealthAssociatedColors[6] = { 5, 1, 0, 0, 0, -100 };
+
+
+	int sizee;
+	std::string color;
+	int speed;
+	int addPoints;
+	int addHealth;
+
+public:
+	sf::RectangleShape spawnEnemyTest();
+
+
+};

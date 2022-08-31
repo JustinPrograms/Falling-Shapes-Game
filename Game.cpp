@@ -1,15 +1,19 @@
 #include "Game.h"
 
 
+
+
 // Private Functions
 void Game::initVariables() {
+
+
 
 	this->window = nullptr;
 
     // Game logic
     this->endGame = false;
     this->points = 0;
-    this->health = 20;
+    this->health = 200;
     this->enemySpawnTimerMax = 20.f;
     this->enemySpawnTimer = this->enemySpawnTimerMax;
     this->maxEnemies = 5;
@@ -42,10 +46,8 @@ void Game::initWindow() {
 }
 
 void Game::initEnemies() {
-
     this->enemy.setPosition(50.f, 50.f);
     this->enemy.setSize(sf::Vector2f(100, 100.f));
-    this->enemy.setFillColor(sf::Color::Cyan);
 }
 
 
@@ -83,21 +85,26 @@ const bool Game::getEndGame() const {
 void Game::spawnEnemy() {
 
     // Spawns enemy
-    this->enemy.setPosition(static_cast<float>(rand() % static_cast<int>(this->window->getSize().x - this->enemy.getSize().x)), 0.f);
+   // this->enemy.setPosition(static_cast<float>(rand() % static_cast<int>(this->window->getSize().x - this->enemy.getSize().x)), 0.f);
 
     
     // Randomize enemy type
-    int type = rand() % 6;
-    this->enemy.setSize(sf::Vector2f(100.f, 100.f));
-
-    float sizeFloat = static_cast<float>(rand() % 10) / 9.f;
-    sf::Vector2f size = sf::Vector2f(sizeFloat, sizeFloat);
+    //int type = rand() % 6;
+   // float sizeFloat = static_cast<float>(rand() % 10) / 9.f;
+   // sf::Vector2f size = sf::Vector2f(sizeFloat, sizeFloat);
 
 
-    this->enemy.setSize(sf::Vector2f(100.f, 100.f));
-    this->enemy.setScale(sf::Vector2f(1.f, 1.f));
+    //this->enemy.setSize(sf::Vector2f(100.f, 100.f));
+    //this->enemy.setScale(sf::Vector2f(1.f, 1.f));
+    //this->enemy.setFillColor(sf::Color::Blue);
 
-    switch (type) {
+    EnemyTest enemy;
+
+    enemy.EnemyTest::spawnEnemyTest();
+    this->enemy.setPosition(static_cast<float>(rand() % static_cast<int>(this->window->getSize().x - this->enemy.getSize().x)), 0.f);
+
+
+/*    switch (type) {
     case 0:
         this->enemy.setScale(sf::Vector2f(0.10f, 0.10f));
         this->enemy.setFillColor(sf::Color::Magenta);
@@ -127,7 +134,7 @@ void Game::spawnEnemy() {
         this->enemy.setFillColor(sf::Color::Yellow);
         break;
 
-    }
+    }*/
     this->enemies.push_back(this->enemy);
 }
 
@@ -209,6 +216,7 @@ void Game::updateEnemies() {
                     if (this->enemies[i].getFillColor() == sf::Color::Magenta) {
                         this->points += 10;
                         this->health += 5;
+                       
                     } 
                     else if (this->enemies[i].getFillColor() == sf::Color::Blue) {
                         this->points += 5;
@@ -264,6 +272,10 @@ void Game::renderEnemies(sf::RenderTarget& target) {
 
 void Game::render() {
 
+    //EnemyTest bob;
+
+    //std::cout << bob.EnemyTest::spawnEnemyTest() << std::endl;
+
     // Renders all objects
 
     this->window->clear(sf::Color(0, 0, 0, 255));
@@ -277,3 +289,36 @@ void Game::render() {
     this->window->display();
 }
 
+/*std::string EnemyTest::spawnEnemyTest() {
+
+}*/
+
+sf::RectangleShape EnemyTest::spawnEnemyTest() {
+
+    int r = rand() % 6;
+    float sizeFloat = static_cast<float>(rand() % 10) / 9.f;
+    sf::Vector2f size = sf::Vector2f(sizeFloat, sizeFloat);
+
+    sf::RectangleShape enemy;
+
+    enemy.setSize(sf::Vector2f(100.f, 100.f));
+    enemy.setFillColor(sf::Color::Cyan);
+
+
+
+    color = colors[r];
+    enemy.setScale(size);
+    speed = (rand() % 10) + 2;
+    addPoints = pointsAssociatedColors[r];
+    addHealth = HealthAssociatedColors[r];
+
+    std::stringstream ss;
+    ss << "Size: " << sizeFloat << "%\n"
+        << "Color: " << color << "\n"
+        << "Speed: " << speed << "\n"
+        << "addPoints: " << addPoints << "\n"
+        << "addHealth: " << addHealth << "\n\n";
+
+    std::cout << ss.str() << "\n";
+    return enemy;
+}

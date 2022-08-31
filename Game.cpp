@@ -274,7 +274,6 @@ void Game::render() {
 
     this->renderText(*this->window);
 
-
     this->window->display();
 }
 

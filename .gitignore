@@ -97,12 +97,6 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
-#Custom
-*.dll
-*.user 
-*.filters
-*.sln
-*.vcxproj
 
 # Chutzpah Test files
 _Chutzpah*
@@ -372,3 +366,10 @@ FodyWeavers.xsd
 CMakeLists.txt
 .idea
 cmake-build-debug
+
+# Custom
+*.dll
+*.user 
+*.filters
+*.sln
+*.vcxproj

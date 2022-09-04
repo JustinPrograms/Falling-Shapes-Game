@@ -7,7 +7,7 @@ void Game::initVariables() {
   // Game logic
   this->endGame = false;
   this->points = 0;
-  this->health = 200;
+  this->health = 20;
   this->enemySpawnTimerMax = 20.f;
   this->enemySpawnTimer = this->enemySpawnTimerMax;
   this->maxEnemies = 5;
@@ -115,7 +115,7 @@ void Game::updateText() {
 void Game::updateEnemies() {
 
   // Updating timer for enemy_t spawning
-  if (this->enemies.size() < this->maxEnemies) {
+  if (this->enemies.size() < 5) {
 
     if (this->enemySpawnTimer >= this->enemySpawnTimerMax) {
 
@@ -136,6 +136,7 @@ void Game::updateEnemies() {
 
       this->enemies.erase(this->enemies.begin() + i);
 
+      // ## Red is still making us lose health
       if (this->enemies[i].getFillColor() != sf::Color::Red)
         this->health -= 1;
     }
@@ -151,8 +152,10 @@ void Game::updateEnemies() {
 
         if (this->enemies[i].getGlobalBounds().contains(this->mousePosView)) {
           deleted = true;
+
           this->points += this->enemies[i].addPoints;
           this->health += this->enemies[i].addHealth;
+
           this->enemies.erase(this->enemies.begin() + i);
         }
     }

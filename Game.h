@@ -57,12 +57,12 @@ class Game {
  public:
 
   enemy_data_t enemy_data[6] = {
-      {sf::Color::Magenta, 1, 4, 2, 2},
-      {sf::Color::Blue, 1, 4, 2, 2},
-      {sf::Color::Cyan, 1, 4, 2, 2},
-      {sf::Color(255, 165, 0, 255), 1, 4, 2, 2},
-      {sf::Color::Green, 1, 4, 2, 2},
-      {sf::Color::Red, -100, -100, 2, 2},
+      {sf::Color::Magenta, 2, 10, 1, 1},
+      {sf::Color::Blue, 0, 5, 2, 2},
+      {sf::Color::Cyan, 0, 3, 2, 4},
+      {sf::Color(255, 165, 0, 255), 0, 2, 4, 5},
+      {sf::Color::Green, 0, 1, 6, 6},
+      {sf::Color::Red, -100, -100, 2, 6},
   };
 
   // Constructors

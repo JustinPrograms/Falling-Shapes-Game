@@ -1,15 +1,13 @@
-//
-// Created by christian on 8/31/22.
-//
+#pragma once
 
 #ifndef XPWEBM__ENEMY_H_
 #define XPWEBM__ENEMY_H_
 
-#include <Graphics/Color.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+
 #include <utility>
-#include <System/Vector2.hpp>
 #include <cstdlib>
-#include <Graphics/RectangleShape.hpp>
 
 #define SCALE_FAC 10.f
 

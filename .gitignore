@@ -362,12 +362,10 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-### CHRISTIAN WAS HERE
+### Custom
 CMakeLists.txt
 .idea
 cmake-build-debug
-
-# Custom
 *.dll
 *.user 
 *.filters
